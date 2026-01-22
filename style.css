@@ -422,9 +422,51 @@ cite {
 
 /* --- Categories (Mobile Base) --- */
 .category-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* 1 column */
-  gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 Column */
+    gap: 30px;
+}
+
+.cat-item {
+    position: relative; /* Overlay eka athule thiyaganna */
+    overflow: hidden;   /* Image eka zoom unoth eliyata nopanna */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- The Overlay (Mobile: Always Visible State) --- */
+.cat-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 20px;
+    
+    /* Mobile waladi yata idan udata kalu gradient ekak */
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.cat-overlay h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.cat-btn {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 2px;
 }
 
 .cat-item h3 {
@@ -433,8 +475,10 @@ cite {
 }
 
 .cat-item img {
-  height: 300px;
-  object-fit: cover;
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Zoom effect transition */
 }
 
 /* --- Newsletter (Mobile Base) --- */
@@ -703,8 +747,50 @@ cite {
   }
 
   .cat-item img {
-    height: 400px;
+    height: 450px;
   }
+
+  /* Desktop Overlay: Mulu image ekama cover karana widiyata */
+    .cat-overlay {
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        background: rgba(141, 129, 108, 0.9); /* Brand Accent Color with transparency */
+        justify-content: center; /* Center Content */
+        align-items: center;
+        
+        /* MULADI PENNE NA (Hidden) */
+        opacity: 0;
+        transform: translateY(20px); /* Poddak pahala thiyenne */
+    }
+
+    /* HOVER EFFECT */
+    .cat-item:hover .cat-overlay {
+        opacity: 1; /* Penawa */
+        transform: translateY(0); /* Udata enawa */
+    }
+
+    .cat-item:hover img {
+        transform: scale(1.1); /* Hover karama image eka poddak zoom wenawa */
+    }
+    
+    .cat-overlay h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .cat-btn {
+        border: 1px solid #fff;
+        padding: 10px 25px;
+        border-radius: 30px; /* Pill shape button */
+        transition: background 0.3s;
+    }
+    
+    .cat-btn:hover {
+        background: #fff;
+        color: #000;
+        text-decoration: none;
+    }
 
   /* Newsletter Size */
   .newsletter h2 {

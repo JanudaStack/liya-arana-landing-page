@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Liya Arana - Furniture Store</title>
+
     <link rel="icon" type="image/png" href="assets/site-logo-512x512.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,21 +53,25 @@
         </div>
     </header>
 
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="hero-split">
             <div class="hero-text">
-                <h1 class="anim-hero">WOODEN TABLE SET</h1>
-                <p class="anim-hero">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse blanditiis
-                    necessitatibus architecto rem possimus dolorem maxime veritatis adipisci ab ipsam.</p>
+                <h1 id="hero-title" class="anim-hero">WOODEN TABLE SET</h1>
+                <p id="hero-desc" class="anim-hero">Aliquet donec ut arcu risus amet mattis diam gravida. Ac vestibulum
+                    quis proin in aliquam et et auctor.</p>
+
                 <a href="#" class="btn-primary">SHOP NOW &rarr;</a>
-                <div class="slider-dots anim-hero">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
+
+                <div class="slider-dots anim-hero" id="hero-dots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
                 </div>
             </div>
+
             <div class="hero-image anim-hero-img">
-                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
-                    alt="Wooden Table Set">
+                <img id="hero-img"
+                    src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
+                    alt="Hero Image">
             </div>
         </div>
     </section>

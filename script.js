@@ -5,21 +5,86 @@ gsap.registerPlugin(ScrollTrigger);
 const reviews = [
     {
         text: "Absolutely in love with the Minimal Sofa! The fabric quality is top-notch and it fits perfectly in my living room. Highly recommended.",
-        author: "SARAH JENKINS"
+        author: "AMARABANDU RUPASINHA"
     },
     {
-        text: "Fast delivery and excellent packaging. The wooden table set looks exactly like the photos. Great job Furnics team!",
+        text: "Fast delivery and excellent packaging. The wooden table set looks exactly like the photos. Great job Liya Arana team!",
         author: "KASUN PERERA"
     },
     {
         text: "I was skeptical about buying furniture online, but this store changed my mind. The customer service was super helpful.",
-        author: "DAVID MILLER"
+        author: "DAYANANDA THENNEKOON"
     },
     {
         text: "Meyalage badu wala quality eka mara hodai. Gedaratama genath dunna, kisima damage ekak na. Thank you!",
         author: "NIMAL RATHNAYAKE"
     }
 ];
+
+const heroSlides = [
+    {
+        title: "WOODEN TABLE SET",
+        desc: "Aliquet donec ut arcu risus amet mattis diam gravida. Ac vestibulum quis proin in aliquam et et auctor. Amet urna est arcu euismod.",
+        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
+    },
+    {
+        title: "MODERN SOFA DESIGN",
+        desc: "Experience ultimate comfort with our new modern sofa collection. Designed for luxury living rooms with premium materials.",
+        image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1770&q=80"
+    }
+];
+
+const heroTitle = document.getElementById("hero-title");
+const heroDesc = document.getElementById("hero-desc");
+const heroImg = document.getElementById("hero-img");
+const dots = document.querySelectorAll(".dot");
+
+function goToSlide(index) {
+    // Already animate wenawa nam hari, same slide eka nam hari mukuth karanna epa
+    if (isAnimating || currentSlideIndex === index) return;
+    
+    isAnimating = true;
+    currentSlideIndex = index;
+
+    // Timeline ekak hadamu animation eka control karanna
+    const tl = gsap.timeline({
+        onComplete: () => { isAnimating = false; } // Animation iwara unama lock eka arinawa
+    });
+
+    // Step A: Thiyena content eka fade out karanawa
+    tl.to([heroTitle, heroDesc, heroImg], {
+        opacity: 0,
+        y: -20, // Poddak udata yawanawa
+        duration: 0.5,
+        ease: "power2.in",
+        onComplete: () => {
+            // Step B: Content eka maru karanawa (Hidden wela thiyeddi)
+            heroTitle.innerText = heroSlides[index].title;
+            heroDesc.innerText = heroSlides[index].desc;
+            heroImg.src = heroSlides[index].image;
+            
+            // Dots update kirima
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[index].classList.add("active");
+        }
+    })
+    // Step C: Aluth content eka fade in karanawa
+    .to([heroTitle, heroDesc, heroImg], {
+        opacity: 1,
+        y: 0, // Ayeth thibba thanata gannawa
+        duration: 0.5,
+        ease: "power2.out"
+    });
+}
+
+// 3. Auto Play (Optional) - Sekond 6kata sarayak auto maru wenna
+setInterval(() => {
+    let nextIndex = (currentSlideIndex + 1) % heroSlides.length;
+    goToSlide(nextIndex);
+}, 5000);
+
+let currentSlideIndex = 0;
+let isAnimating = false;
 
 let currentReview = 0;
 const textElement = document.getElementById("review-text");

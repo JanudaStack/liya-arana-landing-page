@@ -23,7 +23,7 @@ body {
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -221,22 +221,22 @@ header {
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .dot:hover {
-    background: #ccc;
+  background: #ccc;
 }
 
 .dot.active {
   background: #888;
-    border-color: #888;
-    transform: scale(1.2);
+  border-color: #888;
+  transform: scale(1.2);
 }
 
 /* --- Features (Mobile Base) --- */
@@ -337,7 +337,7 @@ header {
 /* --- Products (Mobile Base) --- */
 .section-header {
   display: flex;
-  flex-direction: column; /* Stack header on mobile */
+  flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 10px;
@@ -346,7 +346,6 @@ header {
 
 .section-header h2 {
   font-size: 2rem;
-  max-width: 100%;
 }
 
 .view-all {
@@ -358,13 +357,77 @@ header {
 
 .product-grid {
   display: grid;
-  grid-template-columns: 1fr; /* 1 Column mobile */
+  grid-template-columns: 1fr; /* Mobile: 1 Col */
   gap: 30px;
 }
 
+/* Card Styles */
 .product-card {
-  transition: transform 0.3s;
+  position: relative; /* Overlay eka athule tiyaganna */
+  overflow: hidden; /* Zoom weddi image eka eliyata nopanna */
+  border-radius: 8px;
+  height: 350px; /* Fixed Height ekak */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth Zoom */
+}
+
+/* --- Mobile View (Overlay Static) --- */
+.product-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+
+  /* Gradient Background for Readability */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Mobile: Left Align */
+}
+
+.product-overlay h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.product-overlay .price {
+  font-size: 1rem;
+  color: #ddd; /* Tikak adu sudu paata */
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Add to Cart Button */
+.add-cart-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 8px 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background 0.3s;
+
+  /* Mobile eke button eka pennanawa. 
+       Kamathi nam 'display: none' dala mobile eke button eka hanganna puluwan */
+  display: block;
+}
+
 .product-card:hover {
   transform: translateY(-5px);
 }
@@ -394,13 +457,13 @@ header {
 
 /* --- Testimonial (Mobile Base) --- */
 .testimonial {
-    background: #F8F5F2;
-    text-align: center;
-    /* Box ekata podi fixed usak denawa layout eka paninne nathuwa thiyanna */
-    min-height: 400px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  background: #f8f5f2;
+  text-align: center;
+  /* Box ekata podi fixed usak denawa layout eka paninne nathuwa thiyanna */
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .quote-icon {
@@ -410,14 +473,14 @@ header {
 }
 
 blockquote {
-    font-family: var(--font-body);
-    font-size: 1.2rem;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    color: #444;
-    /* Smooth opacity transition ekak */
-    opacity: 1; 
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: #444;
+  /* Smooth opacity transition ekak */
+  opacity: 1;
 }
 
 cite {
@@ -430,51 +493,51 @@ cite {
 
 /* --- Categories (Mobile Base) --- */
 .category-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Mobile: 1 Column */
-    gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 Column */
+  gap: 30px;
 }
 
 .cat-item {
-    position: relative; /* Overlay eka athule thiyaganna */
-    overflow: hidden;   /* Image eka zoom unoth eliyata nopanna */
-    border-radius: 4px;
-    cursor: pointer;
+  position: relative; /* Overlay eka athule thiyaganna */
+  overflow: hidden; /* Image eka zoom unoth eliyata nopanna */
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* --- The Overlay (Mobile: Always Visible State) --- */
 .cat-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 20px;
-    
-    /* Mobile waladi yata idan udata kalu gradient ekak */
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 2;
-    transition: all 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 20px;
+
+  /* Mobile waladi yata idan udata kalu gradient ekak */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  transition: all 0.3s ease;
 }
 
 .cat-overlay h3 {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .cat-btn {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2px;
 }
 
 .cat-item h3 {
@@ -483,10 +546,10 @@ cite {
 }
 
 .cat-item img {
-    height: 350px;
-    width: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease; /* Zoom effect transition */
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease; /* Zoom effect transition */
 }
 
 /* --- Newsletter (Mobile Base) --- */
@@ -569,40 +632,40 @@ cite {
 
 /* --- Back to Top Button --- */
 .back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--accent-color); /* Ube brand color eka */
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    z-index: 1000;
-    
-    /* Muladi penne na */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-color); /* Ube brand color eka */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 1000;
+
+  /* Muladi penne na */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .back-to-top:hover {
-    background-color: #333;
-    transform: translateY(-5px) !important; /* Hover unama poddak udata */
+  background-color: #333;
+  transform: translateY(-5px) !important; /* Hover unama poddak udata */
 }
 
 /* Button eka active unama penna */
 .back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* =========================================
@@ -782,6 +845,61 @@ cite {
     grid-template-columns: repeat(4, 1fr);
   }
 
+  .product-card {
+    height: 400px; /* Desktop wala card eka tikak usai */
+  }
+
+  .product-overlay {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background: rgba(141, 129, 108, 0.9); /* Brand Accent Color */
+
+    /* Content Center */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* Hidden State */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .product-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .product-overlay .price {
+    color: #f1f1f1;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .add-cart-btn {
+    padding: 12px 30px;
+    font-size: 12px;
+  }
+
+  .add-cart-btn:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  /* --- HOVER ACTIONS --- */
+
+  /* 1. Show Overlay */
+  .product-card:hover .product-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 2. Zoom Image */
+  .product-card:hover img {
+    transform: scale(1.1);
+  }
+
   /* Testimonial Size */
   blockquote {
     font-size: 1.2rem;
@@ -797,46 +915,51 @@ cite {
   }
 
   /* Desktop Overlay: Mulu image ekama cover karana widiyata */
-    .cat-overlay {
-        top: 0;
-        bottom: 0;
-        height: 100%;
-        background: rgba(141, 129, 108, 0.9); /* Brand Accent Color with transparency */
-        justify-content: center; /* Center Content */
-        align-items: center;
-        
-        /* MULADI PENNE NA (Hidden) */
-        opacity: 0;
-        transform: translateY(20px); /* Poddak pahala thiyenne */
-    }
+  .cat-overlay {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background: rgba(
+      141,
+      129,
+      108,
+      0.9
+    ); /* Brand Accent Color with transparency */
+    justify-content: center; /* Center Content */
+    align-items: center;
 
-    /* HOVER EFFECT */
-    .cat-item:hover .cat-overlay {
-        opacity: 1; /* Penawa */
-        transform: translateY(0); /* Udata enawa */
-    }
+    /* MULADI PENNE NA (Hidden) */
+    opacity: 0;
+    transform: translateY(20px); /* Poddak pahala thiyenne */
+  }
 
-    .cat-item:hover img {
-        transform: scale(1.1); /* Hover karama image eka poddak zoom wenawa */
-    }
-    
-    .cat-overlay h3 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
-    
-    .cat-btn {
-        border: 1px solid #fff;
-        padding: 10px 25px;
-        border-radius: 30px; /* Pill shape button */
-        transition: background 0.3s;
-    }
-    
-    .cat-btn:hover {
-        background: #fff;
-        color: #000;
-        text-decoration: none;
-    }
+  /* HOVER EFFECT */
+  .cat-item:hover .cat-overlay {
+    opacity: 1; /* Penawa */
+    transform: translateY(0); /* Udata enawa */
+  }
+
+  .cat-item:hover img {
+    transform: scale(1.1); /* Hover karama image eka poddak zoom wenawa */
+  }
+
+  .cat-overlay h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .cat-btn {
+    border: 1px solid #fff;
+    padding: 10px 25px;
+    border-radius: 30px; /* Pill shape button */
+    transition: background 0.3s;
+  }
+
+  .cat-btn:hover {
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+  }
 
   /* Newsletter Size */
   .newsletter h2 {

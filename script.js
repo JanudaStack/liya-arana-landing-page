@@ -117,6 +117,35 @@ const mobileMenu = document.querySelector(".mobile-menu");
 
 const navLinks = document.querySelectorAll(".desktop-nav a");
 
+const backToTopBtn = document.getElementById('backToTop');
+
+// 1. Scroll weddi button eka pennanna/hanganna
+window.addEventListener('scroll', () => {
+    // Page eka 500px wada scroll unama button eka pennanawa
+    if (window.scrollY > 500) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+// 2. Click kalahama smooth scroll wenna
+backToTopBtn.addEventListener('click', () => {
+    // Api kalin dapu Lenis use karanawa nam me code eka maru
+    if (typeof lenis !== 'undefined') {
+        lenis.scrollTo(0, {
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        });
+    } else {
+        // Lenis naththam normal browser scroll eka
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+});
+
 // Hama link ekakatama "Click" event ekak danawa
 navLinks.forEach((link) => {
   link.addEventListener("click", function () {

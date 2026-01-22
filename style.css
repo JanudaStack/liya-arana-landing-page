@@ -386,8 +386,13 @@ header {
 
 /* --- Testimonial (Mobile Base) --- */
 .testimonial {
-  background: #f8f5f2;
-  text-align: center;
+    background: #F8F5F2;
+    text-align: center;
+    /* Box ekata podi fixed usak denawa layout eka paninne nathuwa thiyanna */
+    min-height: 400px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .quote-icon {
@@ -397,13 +402,14 @@ header {
 }
 
 blockquote {
-  font-family: var(--font-body);
-  font-size: 1rem; /* Smaller font */
-  line-height: 1.6;
-  max-width: 100%;
-  margin: 0 auto 20px;
-  color: #444;
-  padding: 0 10px;
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #444;
+    /* Smooth opacity transition ekak */
+    opacity: 1; 
 }
 
 cite {

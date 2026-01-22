@@ -1,0 +1,712 @@
+/* --- Variables & Reset --- */
+:root {
+  --bg-color: #f9f8f6;
+  --text-color: #333333;
+  --accent-color: #8d816c;
+  --light-grey: #e5e5e5;
+  --font-heading: "Cinzel", serif;
+  --font-body: "Jost", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: #1a1a1a;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* --- Lenis Smooth Scroll CSS --- */
+/* html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+} */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-padding {
+  padding: 60px 0; /* Adjusted for mobile */
+}
+
+/* --- Header (Mobile Base) --- */
+header {
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  background: var(--bg-color);
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Mobile: Hide Desktop Nav */
+.desktop-nav {
+  display: none;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+  align-items: center;
+}
+
+.nav-icons i:hover {
+  cursor: pointer;
+}
+
+/* Mobile: Show Hamburger */
+.hamburger {
+  display: block;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position right below header */
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.mobile-menu ul li {
+  margin-bottom: 15px;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+/* --- Hero Section (Mobile Base) --- */
+.hero {
+  min-height: auto; /* Remove fixed height constraint for mobile */
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  background: var(--bg-color);
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr; /* Stacked 1 column */
+  width: 100%;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Mobile Order: Image first, Text second */
+.hero-image {
+  order: 1;
+}
+
+.hero-text {
+  order: 2;
+  padding: 0 5%;
+  text-align: center; /* Center align for mobile looks better */
+}
+
+.hero-text h1 {
+  font-size: 2.5rem; /* Smaller font for mobile */
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.hero-text p {
+  color: #666;
+  margin: 0 auto 30px; /* Center align margin */
+  max-width: 100%;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: #8c8272;
+  color: #fff;
+  padding: 12px 30px;
+  margin: 2rem 0;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border: 1px solid #8c8272;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: #8c8272;
+}
+
+.hero-image img {
+  height: 50vh; /* Shorter image on mobile */
+  object-fit: cover;
+}
+
+.slider-dots {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center; /* Center dots on mobile */
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+.dot.active {
+  background: #888;
+  border-color: #888;
+}
+
+/* --- Features (Mobile Base) --- */
+.features {
+  padding: 40px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column mobile */
+  gap: 20px;
+  text-align: left;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.feature-item i {
+  font-size: 20px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 10px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-item h4 {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* --- About Us (Mobile Base) --- */
+.about-us {
+  padding: 60px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: Stacked (Eka yatata ekak) */
+  gap: 30px;
+  align-items: center; /* Vertical center */
+}
+
+/* Kalin 'about-empty' tibba eka dan image container eka */
+.about-image {
+  width: 100%;
+  height: 300px; /* Mobile ekedi image eke උස */
+  overflow: hidden;
+  border-radius: 4px; /* Podi lassana look ekak enna */
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Image eka adenne nathuwa frame ekata fit wenna */
+}
+
+.about-content {
+  padding: 0 5%;
+}
+
+.about-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.about-content p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.95rem; /* Font size poddak adjust kala kiyawanna lesi wenna */
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #333;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* --- Products (Mobile Base) --- */
+.section-header {
+  display: flex;
+  flex-direction: column; /* Stack header on mobile */
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  max-width: 100%;
+}
+
+.view-all {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid transparent;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 Column mobile */
+  gap: 30px;
+}
+
+.product-card {
+  transition: transform 0.3s;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.p-img {
+  background: #f0f0f0;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.p-img img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* --- Testimonial (Mobile Base) --- */
+.testimonial {
+  background: #f8f5f2;
+  text-align: center;
+}
+
+.quote-icon {
+  font-size: 30px;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+blockquote {
+  font-family: var(--font-body);
+  font-size: 1rem; /* Smaller font */
+  line-height: 1.6;
+  max-width: 100%;
+  margin: 0 auto 20px;
+  color: #444;
+  padding: 0 10px;
+}
+
+cite {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-style: normal;
+  color: #888;
+}
+
+/* --- Categories (Mobile Base) --- */
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column */
+  gap: 30px;
+}
+
+.cat-item h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.cat-item img {
+  height: 300px;
+  object-fit: cover;
+}
+
+/* --- Newsletter (Mobile Base) --- */
+.newsletter {
+  background: #f9f8f6;
+  text-align: center;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.subscribe-form {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.subscribe-form input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-family: var(--font-body);
+}
+
+.subscribe-form button {
+  background: #000;
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* --- Footer (Mobile Base) --- */
+.footer {
+  background: #f5f3f0;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column */
+  gap: 30px;
+}
+
+.footer-col h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.copyright {
+  margin-top: 4.7rem;
+}
+
+.footer-col h4 {
+  margin-bottom: 15px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a:hover {
+  color: #000;
+}
+
+/* =========================================
+   MEDIA QUERIES (Min-Width: Tablet & Desktop)
+   ========================================= */
+
+/* --- Tablet Devices (min-width: 600px) --- */
+@media (min-width: 600px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+
+  /* Grids become 2 columns */
+  .feature-grid,
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .newsletter h2 {
+    font-size: 2.2rem;
+  }
+
+  .subscribe-form {
+    max-width: 500px;
+  }
+}
+
+/* --- Desktop Devices (min-width: 900px) --- */
+@media (min-width: 900px) {
+  /* Header: Show Desktop Nav, Hide Hamburger */
+  header {
+    padding: 25px 0;
+  }
+
+  .desktop-nav {
+    display: block;
+  }
+
+  .desktop-nav ul {
+    display: flex;
+    gap: 30px;
+  }
+
+  .desktop-nav a {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    position: relative;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  .desktop-nav a.active {
+    color: var(--accent-color);
+    font-weight: 600;
+    position: relative;
+  }
+
+  .desktop-nav a.active::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent-color);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a.active {
+    color: var(--accent-color);
+  }
+
+  .desktop-nav a.active::after,
+  .desktop-nav a:hover::after {
+    width: 100%;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none !important; /* Ensure it's hidden on desktop */
+  }
+
+  /* Hero: Side-by-side layout */
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero-split {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 0;
+  }
+
+  .hero-text {
+    order: 1; /* Reset order */
+    padding: 0 5% 0 10%;
+    text-align: left;
+  }
+
+  .hero-image {
+    order: 2; /* Reset order */
+  }
+
+  .hero-image img {
+    height: 90vh;
+  }
+
+  .hero-text h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-text p {
+    margin: 0 0 30px; /* Reset margin */
+    max-width: 450px;
+  }
+
+  .slider-dots {
+    justify-content: flex-start; /* Reset alignment */
+  }
+
+  /* Features: 4 Columns */
+  .feature-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feature-item {
+    justify-content: flex-start;
+  }
+
+  /* About Us: Side-by-side */
+  .about-us {
+    padding: 100px 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr 1fr; /* Desktop: Side by side */
+    gap: 50px;
+  }
+
+  .about-empty {
+    display: block; /* Show the empty/image side */
+  }
+
+  .about-content {
+    order: 1; /* Reset order */
+    padding: 0 10% 0 5%;
+    text-align: left;
+  }
+
+  .about-content h2 {
+    font-size: 3rem;
+  }
+
+  .about-image {
+    height: 100%; /* Parent container eke usa ganna */
+    min-height: 450px; /* Desktop ekedi aduma usa */
+  }
+
+  /* Products: 4 Columns & Header Alignment */
+  .section-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Testimonial Size */
+  blockquote {
+    font-size: 1.2rem;
+  }
+
+  /* Categories: 3 Columns */
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cat-item img {
+    height: 400px;
+  }
+
+  /* Newsletter Size */
+  .newsletter h2 {
+    font-size: 2.5rem;
+  }
+
+  /* Footer: 4 Columns */
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}

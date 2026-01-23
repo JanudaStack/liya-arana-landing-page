@@ -843,6 +843,32 @@ cite {
     text-align: center;
 }
 
+/* --- Cart Icon & Badge Styling --- */
+.cart-icon-wrap {
+    position: relative; /* Badge eka meka athule position karanna */
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;  /* Icon ekata udin */
+    right: -10px; /* Icon ekata dakunen */
+    background-color: #000; /* Badge color */
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 50%; /* Wakarawum hadaya */
+    min-width: 18px;
+    text-align: center;
+    line-height: 1;
+    z-index: 10;
+    
+    /* Muladi penne na (JS walin active karanawa) */
+    display: none; 
+}
+
 /* =========================================
    MEDIA QUERIES (Min-Width: Tablet & Desktop)
    ========================================= */

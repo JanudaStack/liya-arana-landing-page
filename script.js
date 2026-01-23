@@ -327,7 +327,18 @@ function updateCartUI() {
 
   // C. Total Price & Count Update karanawa
   cartTotalElement.innerText = "$" + totalPrice.toFixed(2);
-  cartCountElement.innerText = totalCount;
+  if (totalCount > 0) {
+    // Badu thiyenawa nam pennanawa
+    cartCountElement.style.display = "inline-block";
+    cartCountElement.innerText = totalCount;
+  } else {
+    // Badu 0 nam hanganawa
+    cartCountElement.style.display = "none";
+  }
+
+  // Header Text Update
+  document.querySelector(".cart-header h3").innerText =
+    `YOUR CART (${totalCount})`;
 
   // Header eke Cart Title eka update (Ex: YOUR CART (3))
   document.querySelector(".cart-header h3").innerText =
@@ -391,8 +402,16 @@ function updateCartUI() {
     cartItemsContainer.appendChild(cartItemEl);
   });
 
-  cartTotalElement.innerText = "$" + totalPrice.toFixed(2);
-  cartCountElement.innerText = totalCount;
-  document.querySelector(".cart-header h3").innerText =
-    `YOUR CART (${totalCount})`;
+cartTotalElement.innerText = "$" + totalPrice.toFixed(2);
+
+// 2. Count Badge Logic (Meka thama wadagathma tika)
+if (totalCount > 0) {
+    cartCountElement.style.display = 'block'; // Badu thiyenawa nam pennanawa
+    cartCountElement.innerText = totalCount;
+} else {
+    cartCountElement.style.display = 'none';  // Badu nathnam hanganawa
+}
+
+// 3. Header Text Update
+document.querySelector('.cart-header h3').innerText = `YOUR CART (${totalCount})`;
 }

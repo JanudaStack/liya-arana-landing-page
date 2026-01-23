@@ -621,6 +621,11 @@ cite {
   margin-top: 2rem;
 }
 
+.copyright span {
+  color: #000;
+  font-weight: 500;
+}
+
 .footer-col h4 {
   margin-bottom: 15px;
   font-size: 12px;

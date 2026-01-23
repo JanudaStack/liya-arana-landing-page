@@ -611,8 +611,14 @@ cite {
   font-weight: 700;
 }
 
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
 .copyright {
-  margin-top: 4.7rem;
+  margin-top: 2rem;
 }
 
 .footer-col h4 {

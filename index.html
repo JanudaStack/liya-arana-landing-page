@@ -36,7 +36,13 @@
             <div class="nav-icons">
                 <i class="fas fa-search"></i>
                 <i class="fas fa-user"></i>
-                <i class="fas fa-shopping-cart"></i>
+
+                <div id="cart-btn" style="cursor: pointer;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span
+                        style="font-size: 10px; background: #000; color: #fff; padding: 2px 5px; border-radius: 50%; vertical-align: top;" id="cart-count">0</span>
+                </div>
+
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -132,11 +138,13 @@
                 <div class="product-card">
                     <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80"
                         alt="Sofa">
-
                     <div class="product-overlay">
                         <h3>BLACK SOFA SET</h3>
-                        <p class="price">Rs.45,000</p>
-                        <button class="add-cart-btn">ADD TO CART</button>
+                        <p class="price">Rs.30,000</p>
+                        <button class="add-cart-btn" data-id="1" data-name="Black Sofa Set" data-price="200"
+                            data-img="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=200&q=60">
+                            ADD TO CART
+                        </button>
                     </div>
                 </div>
 
@@ -145,8 +153,11 @@
                         alt="Table">
                     <div class="product-overlay">
                         <h3>CIRCLE DINING TABLE</h3>
-                        <p class="price">Rs.30,000</p>
-                        <button class="add-cart-btn">ADD TO CART</button>
+                        <p class="price">Rs.69,000</p>
+                        <button class="add-cart-btn" data-id="2" data-name="Circle Dining Table" data-price="250"
+                            data-img="https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?auto=format&fit=crop&w=200&q=60">
+                            ADD TO CART
+                        </button>
                     </div>
                 </div>
 
@@ -155,8 +166,11 @@
                         alt="Minimal Sofa">
                     <div class="product-overlay">
                         <h3>MINIMAL SOFA</h3>
-                        <p class="price">Rs.50,000</p>
-                        <button class="add-cart-btn">ADD TO CART</button>
+                        <p class="price">Rs.45,000</p>
+                        <button class="add-cart-btn" data-id="3" data-name="Minimal Sofa" data-price="300"
+                            data-img="https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=200&q=60">
+                            ADD TO CART
+                        </button>
                     </div>
                 </div>
 
@@ -165,8 +179,11 @@
                         alt="Tea Table">
                     <div class="product-overlay">
                         <h3>PATTERN TEA TABLE</h3>
-                        <p class="price">Rs.69,000</p>
-                        <button class="add-cart-btn">ADD TO CART</button>
+                        <p class="price">Rs.50,000</p>
+                        <button class="add-cart-btn" data-id="4" data-name="Pattern Tea Table" data-price="150"
+                            data-img="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=200&q=60">
+                            ADD TO CART
+                        </button>
                     </div>
                 </div>
 
@@ -264,6 +281,25 @@
             </div>
         </div>
     </footer>
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+
+        <div class="cart-header">
+            <h3>YOUR CART (0)</h3>
+            <span class="close-cart" id="close-cart">&times;</span>
+        </div>
+
+        <div class="cart-items"></div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <h3>TOTAL:</h3>
+                <h3>$00.00</h3>
+            </div>
+            <a href="#" class="btn-checkout">CHECKOUT NOW</a>
+        </div>
+    </div>
 
     <button id="backToTop" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
